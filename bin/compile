@@ -79,6 +79,25 @@ cat > $INSTALL_DIR/magic.xml <<EOF
 </magicmap>
 EOF
 
+# Copy the type.xml file to the appropriate directory
+cat > $INSTALL_DIR/type.xml <<EOL
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE typemap [
+<!ELEMENT typemap (type)+>
+<!ELEMENT type EMPTY>
+<!ATTLIST type name CDATA #REQUIRED>
+<!ATTLIST type fullname CDATA #IMPLIED>
+<!ATTLIST type family CDATA #IMPLIED>
+<!ATTLIST type style CDATA #IMPLIED>
+<!ATTLIST type stretch CDATA #IMPLIED>
+<!ATTLIST type weight CDATA #IMPLIED>
+<!ATTLIST type glyphs CDATA #IMPLIED>
+]>
+<typemap>
+  <type name="Arial" fullname="Arial" family="Arial" style="Normal" stretch="Normal" weight="400" glyphs="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"/>
+</typemap>
+EOL
+
 # update PATH and LD_LIBRARY_PATH
 echo "-----> Updating environment variables"
 PROFILE_PATH="$BUILD_DIR/.profile.d/imagemagick.sh"

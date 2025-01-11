@@ -98,6 +98,21 @@ cat > $INSTALL_DIR/type.xml <<EOL
 </typemap>
 EOL
 
+cat > $INSTALL_DIR/colors.xml <<EOL
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE colormap [
+<!ELEMENT colormap (color)+>
+<!ELEMENT color EMPTY>
+<!ATTLIST color name CDATA #REQUIRED>
+<!ATTLIST color color CDATA #REQUIRED>
+]>
+<colormap>
+  <color name="white" color="#FFFFFF"/>
+  <color name="black" color="#000000"/>
+  <!-- Add more colors as needed -->
+</colormap>
+EOL
+
 # update PATH and LD_LIBRARY_PATH
 echo "-----> Updating environment variables"
 PROFILE_PATH="$BUILD_DIR/.profile.d/imagemagick.sh"
